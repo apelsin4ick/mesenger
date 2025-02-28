@@ -1,0 +1,5 @@
+uvicorn main:app --host 127.0.0.1 --port 3030 --reload
+pip install uvicorn
+pip install sqlite3
+pip install bcrypt
+pip install python-multipart fastapi
