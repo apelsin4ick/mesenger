@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("login-form");
     const logoutBtn = document.getElementById("logout-btn");
 
+    console.log("JavaScript загружен!");
+
+
     // Проверка токена при загрузке страницы
     checkAuth();
 
@@ -13,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let username = document.getElementById("register-username").value;
             let password = document.getElementById("register-password").value;
 
-            let response = await fetch("/register", {
+            let response = await fetch("/auth/register", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({username: username, password: password})
@@ -36,11 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
             let username = document.getElementById("login-username").value;
             let password = document.getElementById("login-password").value;
 
-            let response = await fetch("/login", {
+            let response = await fetch("/auth/l ogin", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({username: username, password: password})
             });
+
 
             let result = await response.json();
             if (response.ok) {
